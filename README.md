@@ -13,7 +13,7 @@ This repository is released in full alongside the paper and provides everything 
 | ---------------------------------------------------------------- | ------------------------------------------------------------------ |
 | Point-level metrics: GA, TNR, FNR, FPR, PAB/TPR, UAB/Precision   | ✅ Released                                                         |
 | Grid/DBM-based metrics: GB-PAB, GB-UAB, MAE, EER                 | ✅ Released                                                         |
-| Trained SSCN model and weights (`resources/model/`)              | ✅ Released at reviewers' request                                   |
+| Trained SSCN model and weights (`resources/model/`)              | ✅ Released                                                         |
 | SSCN training pipeline (internal-infrastructure-dependent parts) | 🔒 Available from the corresponding author upon reasonable request |
 
 **What this repository is not:** a turnkey pipeline for reproducing the paper's trained model from raw data. The trained weights and inference code in `resources/model/` are provided for inspection and reuse independently of the evaluation framework. They are not required to run `alb-metrics`. The evaluation framework is entirely model-agnostic and can evaluate the LAS/LAZ output of any classifier, not only the provided SSCN model.
