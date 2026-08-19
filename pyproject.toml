@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alb-las-metrics"
+version = "0.2.1"
+description = "Efficient reproducible LAS/LAZ benchmark metrics for airborne laser bathymetry"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = [
+    "lidar",
+    "bathymetry",
+    "point-cloud",
+    "las",
+    "benchmark",
+    "reproducibility",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = ["laspy>=2.5", "numpy>=1.24", "numba>=0.59"]
+
+# TODO(authors): fill in before publication.
+[project.urls]
+Repository = "https://github.com/<OWNER>/<REPO>"
+Paper = "https://doi.org/<TODO>"
+
+[project.optional-dependencies]
+laz = ["lazrs>=0.6"]
+raster = ["rasterio>=1.3"]
+
+[project.scripts]
+alb-metrics = "alb_metrics.cli:metrics_main"
+# NOTE: a `create-withheld = "alb_metrics.cli:withheld_main"` entry point
+# used to be declared here, but `alb_metrics.cli.withheld_main` was never
+# implemented: any install would register a `create-withheld` command that
+# crashed with ImportError as soon as it was run. Removed until an
+# implementation lands; see CHANGES.md.
+
+[tool.setuptools.packages.find]
+where = ["src"]
